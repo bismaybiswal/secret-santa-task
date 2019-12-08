@@ -30,9 +30,9 @@ $(document).ready(function () {
 					$("#task1Header").css({ color: 'green' })
 					$("#task2Header").css({ color: 'black' })
 					$("#pre-stage").show()
-					$("#pre-msg").text(`Now your secret santa is going to be encrypted.
-					Out of the following possible numbers ${data.combinations}. one number will be used as a SECRET KEY. 
-					You have to guess the SECRET KEY within 2 chances
+					$("#pre-msg").text(`Now your secret santa name is going to be encrypted.
+					Out of the following possible numbers ${data.combinations}. one number will be used as a SECRET KEY for encryption. 
+					You have to guess the valid SECRET KEY used for encryption out of the above numbers.You will be given 3 chances to break out secret santa name.
 					`)
 				}
 			});
