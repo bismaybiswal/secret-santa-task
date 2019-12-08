@@ -102,9 +102,9 @@ $(document).ready(function () {
 				$("#key").css({ display: '' })
 			} else {
 				$("#error-notify").hide();
-				$("#key").val("");
+
 				$("#encryptedText").css({ display: 'none' })
-				$("#key").css({ display: 'none' })
+				$("#key").attr("disabled",true)
                                 $("#decryptBtn").attr("disabled",true)
 				//alert(data)
 				$("#banner").css({ display: '', color: "white" });
