@@ -32,7 +32,7 @@ $(document).ready(function () {
 					$("#pre-stage").show()
 					$("#pre-msg").text(`Now your secret santa name is going to be encrypted.
 					Out of the following possible numbers ${data.combinations}. one number will be picked randomly and will be used as a SECRET KEY for encryption. 
-					You have to provide valid SECRET KEY used in the encryption from the above given numbers. Only 3 chances will be given to break the encryption to reveal secret santa name.
+					You have to guess valid SECRET KEY used in the encryption from the above given numbers. Only 3 chances will be given to break the encryption to reveal secret santa name.
 					`)
 				}
 			});
