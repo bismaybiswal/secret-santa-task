@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include partials/head %>
+  <style>
+    #myProgress {
+      width: 100%;
+      background-color: #ddd;
+    }
+
+    #myBar {
+      width: 0%;
+      height: 30px;
+      background-color: #4CAF50;
+      text-align: center;
+      line-height: 30px;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <% include partials/menu %>
+  <div class="container-fluid bg-3 text-center">
+    <h2>Secret Santa challenge</h2>
+    <div class="row">
+
+      <div class="col-sm-6">
+        <div class="card">
+          <h3 id="task1Header">1. Solve the Puzzle?</h3>
+          <div class="card-body">
+            <p>Puzzle question goes here..</p>
+            <div id="success-notify1" class="alert alert-success" style="display: none">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong id="success-msg1"></strong>
+            </div>
+            <div id="error-notify1" class="alert alert-danger" style="display: none">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong id="error-msg1"></strong>
+            </div>
+            <div class="form-group">
+              <input length="3" id="ans" width="50px" type="text" class="form-control" placeholder="Answer"
+                required="required"><br>
+              <button id="checkAns" type="button" class="btn btn-labeled btn-info">
+                <span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span> Check</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="card">
+          <h3 id="task2Header">2. Find your Secret Santa!</h3>
+
+          <div style="display: none" id="pre-stage">
+            <span id="pre-msg"></span><br>
+            <p>Press "continue" button to start the encryption.</p>
+            <br>
+            <button id="continue" type="button" class="btn btn-labeled btn-primary">
+              <span class="btn-label"></span> continue</button>
+
+          </div>
+          <br>
+          <div style="display: none" id="myProgress">
+            <div id="myBar"></div>
+          </div>
+          <div id="task2Body" class="card-body">
+
+
+            <div id="success-notify" class="alert alert-success" style="display: none">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong id="success-msg"></strong>
+            </div>
+            <div id="error-notify" class="alert alert-danger" style="display: none">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong id="error-msg"></strong>
+            </div>
+            <h5 class="card-title">Your secret santa is encrypted. Provide valid Secret Key to reveal your secret santa!
+            </h5>
+            <div id="banner" style="display: none; background-color: rgb(0, 145, 0)" class="card bg-success text-white">
+              <div class="card-text"
+                style="color: white; margin-left: 50px; margin-right: 50px; font-weight: bolder; font-size: 20px;"
+                id="revealArea">Success card</div>
+            </div>
+            <p id="encryptedText" class="card-text" style="background-color: gray; border: 1">
+              MjY150hxldB1dQOOSCvMF2aEydRyFpjxV?YFptxi4Z5g60P3Z4F1l9xZ1gM0T8Z
+            </p>
+            <div class="form-group">
+              <input length="3" id="key" width="50px" type="text" class="form-control" placeholder="Secret Key"
+                required="required">
+            </div>
+            <span id="chances" class="label label-danger">
+              Chances <span id="chanceCount"></span>
+            </span><br><br>
+            <button id="decryptBtn" type="button" class="btn btn-labeled btn-success">
+              <span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span> Reveal name</button>
+            <!-- <a id="decryptBtn"  href="#" class="btn btn-primary">Reveal</a><br/> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<% include partials/script %>
+<script src="./javascripts/home-service.js"></script>
+
+</html>
