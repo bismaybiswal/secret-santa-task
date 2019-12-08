@@ -102,7 +102,7 @@ $(document).ready(function () {
 				$("#key").css({ display: '' })
 			} else {
 				$("#error-notify").hide();
-
+                                $("#task2Header").css({ color: 'green' })
 				$("#encryptedText").css({ display: 'none' })
 				$("#key").attr("disabled",true)
                                 $("#decryptBtn").attr("disabled",true)
@@ -143,7 +143,9 @@ function checkChances(silent) {
 			//$("#success-notify").show()
 			$("#decryptBtn").attr("disabled", true);
 			$("#key").attr("disabled", true);
-		} 
+                        
+		$("#task2Header").css({ color: 'red' })
+}
 	} else {
 		let chances = window.sessionStorage.getItem("$");
 		$("#chanceCount").text(chances)
