@@ -105,6 +105,7 @@ $(document).ready(function () {
 				$("#key").val("");
 				$("#encryptedText").css({ display: 'none' })
 				$("#key").css({ display: 'none' })
+                                $("#decryptBtn").attr("disabled",true)
 				//alert(data)
 				$("#banner").css({ display: '', color: "white" });
 				$("#revealArea").animate({
