@@ -4,7 +4,7 @@ $(document).ready(function () {
 	//login
 	$('#loginBtn').click(function () {
 		//$("#loginBtn").attr("disabled", true)
-		$("#loginBtn").text("Logging in..")
+		$("#loginBtn").value("Logging in..")
 		var username = $("#username").val();
 		var password = $("#password").val();
 		var request = $.ajax({
@@ -18,7 +18,7 @@ $(document).ready(function () {
 				$("#error-notify").css({ display: '' });
 				$("#error-msg").text(data.error.message)
 				$("#loginBtn").attr("disabled", false)
-				$("#loginBtn").text("Login")
+				$("#loginBtn").value("Login")
 			} else {
 				window.sessionStorage.setItem('__sessionid__', data.__session);
 				$("#loginBtn").attr("disabled", false)
