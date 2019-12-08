@@ -31,8 +31,8 @@ $(document).ready(function () {
 					$("#task2Header").css({ color: 'black' })
 					$("#pre-stage").show()
 					$("#pre-msg").text(`Now your secret santa name is going to be encrypted.
-					Out of the following possible numbers ${data.combinations}. one number will be used as a SECRET KEY for encryption. 
-					You have to guess the valid SECRET KEY used for encryption out of the above numbers.You will be given 3 chances to break out secret santa name.
+					Out of the following possible numbers ${data.combinations}. one number will be picked randomly and will be used as a SECRET KEY for encryption. 
+					You have to provide valid SECRET KEY used in the encryption from the above given numbers. Only 3 chances will be given to break the encryption to reveal secret santa name.
 					`)
 				}
 			});
