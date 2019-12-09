@@ -23,14 +23,14 @@
 <body>
   <% include partials/menu %>
   <div class="container-fluid bg-3 text-center">
-    <h2>Secret Santa challenge</h2>
+    <h2 style="margin-top: -30px">Secret Santa challenge</h2>
     <div class="row">
 
       <div class="col-sm-6">
         <div class="card">
-          <h3 id="task1Header">1. Solve the Puzzle?</h3>
+          <h3 id="task1Header"><b>Challenge-1</b></h3>
           <div class="card-body">
-            <p>Puzzle question goes here..</p>
+            <h4>Count the total no of lockers of color <b style="color: orange">orange</b>,<b>white</b> and <b style="color:gray">dark gray</b> </h4>
             <div id="success-notify1" class="alert alert-success" style="display: none">
               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
               <strong id="success-msg1"></strong>
@@ -51,10 +51,10 @@
       </div>
       <div class="col-sm-4">
         <div class="card">
-          <h3 id="task2Header">2. Find your Secret Santa!</h3>
-
+          <h3 id="task2Header"><b>Challenge-2</b><br><br> Guess your Secret Santa!</h3>
           <div style="display: none" id="pre-stage">
-            <span id="pre-msg"></span><br>
+            <h4  style="font-weight: bold" id="numbers"></h4>
+            <h4 id="pre-msg" ></h4>
             <p>Press "continue" button to start the encryption.</p>
             <br>
             <button id="continue" type="button" class="btn btn-labeled btn-primary">
