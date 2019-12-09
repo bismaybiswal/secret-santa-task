@@ -13,7 +13,7 @@
     "users": [
         {
             "__id": "1001",
-            "username": "dinesh",
+            "username": "test",
             "password": "Telstra@123",
             "__session": null
         }
