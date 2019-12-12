@@ -12,14 +12,18 @@ router.get('/', function (req, res, next) {
 router.post('/login', (req, res, next) => {
   let username = req.body.username;
   let password = req.body.password;
-
+  let login = false;
   data.users.forEach(element => {
     if (element.username.toUpperCase() === username.toUpperCase() && element.password === password) {
       element.__session = uuidv4();
+      login = true;
+      console.log("Logged In : "+username)
       res.status(200).json(element);
     }
   });
-  res.status(200).json({ "error": { code: 0001, message: 'Invalid username or password' } });
+  if (!login) {
+    res.status(200).json({ "error": { code: 0001, message: 'Invalid username or password' } });
+  }
 })
 
 router.post('/decrypt', function (req, res, next) {
@@ -45,7 +49,6 @@ function getRandomArbitrary(min, max) {
 router.post('/encrypt', function (req, res, next) {
   let keys = req.body.keys;
   let random = getRandomArbitrary(0, keys.length - 1);
-  console.log("random : " + random)
   let key = keys[random];
   let hint = '';
   data.secretNumbers.forEach(element => {
@@ -54,7 +57,6 @@ router.post('/encrypt', function (req, res, next) {
     }
   });
   console.log("Hint : " + hint)
-  console.log(keys)
   console.log("Secret Key : " + key)
   //encrypt
   const text = data.text;
@@ -78,8 +80,9 @@ router.post('/answer/check', function (req, res, next) {
     data.secretNumbers.forEach(element => {
       combinations.push(element.value);
     })
+    console.log(`Challenge-1 Result : ${answer}`)
 
-    res.status(200).json({ message: "Ya! Ok got it!", ans: answer, combinations: combinations });
+    res.status(200).json({ message: "Ya! It's Correct!", ans: answer, combinations: combinations });
   } else {
     res.status(200).json({ "error": { "message": "No it's not correct!" } })
   }

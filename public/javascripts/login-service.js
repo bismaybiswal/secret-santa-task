@@ -1,4 +1,6 @@
+
 $(document).ready(function () {
+	window.resizeTo(451, 523);
 	window.sessionStorage.removeItem('__sessionid__');
 	$("#logout").css({display: 'none'})
 	//login

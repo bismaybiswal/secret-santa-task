@@ -103,6 +103,17 @@
       }
     }
   </style>
+  <script>
+    let __session = window.sessionStorage.getItem("__sessionid__");
+    if (__session === undefined || __session === null || __session === '') {
+      alert("No sessions found. Redirecting to login")
+      redirect('/');
+    }
+    function redirect(path) {
+      const protocol = window.location.protocol === undefined ? http || https : window.location.protocol
+      window.location.replace(`${path}`);
+    }
+  </script>
 </head>
 
 <body>
@@ -111,14 +122,15 @@
 
 
 
-    <h2 style="margin-top: -30px">Secret Santa challenge</h2>
+    <h2 style="margin-top: -30px; color: chocolate">Secret Santa challenge</h2>
     <div class="row">
       <!-- The Modal -->
       <div id="myModal" class="modal">
         <img class="modal-content" id="img01"><br>
         <button id="closeBtn" type="button">close</button>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-4">
         <div class="card">
           <h3 id="task1Header"><b>Challenge-1</b></h3>
           <div class="card-body">
@@ -144,17 +156,18 @@
       </div>
       <div class="col-sm-4">
         <div class="card">
-          <h3 id="task2Header"><b>Challenge-2</b><br><br> Guess your Secret Santa!</h3>
+          <h3 id="task2Header"><b>Challenge-2</b><br><span style="margin-top:5px">Find your Secret Santa!</span></h3>
           <div style="display: none" id="pre-stage">
-            <h4 style="font-weight: bold" id="numbers"></h4>
+            <h3 style="font-weight: bold" id="numbers"></h3>
             <h4 id="pre-msg"></h4>
-            <p>Press "continue" button to start the encryption.</p>
-            <br>
-            <button id="continue" type="button" class="btn btn-labeled btn-primary">
-              <span class="btn-label"></span> continue</button>
+            <div id="continueInfo">
+              <p>Press "continue" button to start the encryption.</p>
 
+              <button id="continue" type="button" class="btn btn-labeled btn-primary">
+                <span class="btn-label"></span> continue</button>
+            </div>
           </div>
-          <br>
+
           <div style="display: none" id="myProgress">
             <div id="myBar"></div>
           </div>
@@ -169,7 +182,7 @@
               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
               <strong id="error-msg"></strong>
             </div>
-            <h5 class="card-title">Your secret santa is encrypted. Provide valid Secret Key to reveal your secret santa!
+            <h5 class="card-title">
             </h5>
             <div id="banner" style="display: none; background-color: rgb(0, 145, 0)" class="card bg-success text-white">
               <div class="card-text"
@@ -177,25 +190,40 @@
                 id="revealArea">Success card</div>
             </div><br>
             <p id="encryptedText" class="card-text"
-              style="background-color: gray; border: 1;font-color: white; font-size: 11px">
+              style="background-color:#04757f; font-size: 15px; min-width: height 23px;;height: auto;color: whitesmoke;">
               MjY150hxldB1dQOOSCvMF2aEydRyFpjxV?YFptxi4Z5g60P3Z4F1l9xZ1gM0T8Z
             </p>
             <div class="form-group">
-              <input length="3" id="key" width="50px" type="text" class="form-control" placeholder="Secret Key"
-                required="required">
+              <input length="3" id="key" width="50px" type="text" class="form-control"
+                placeholder="Enter Valid Secret Key" required="required">
             </div>
-            <span id="chances" class="label label-danger">
-              Chances <span id="chanceCount"></span>
-            </span><br><br>
-            <button id="decryptBtn" type="button" class="btn btn-labeled btn-success">
+
+            <button id="decryptBtn" type="submit" class="btn btn-labeled btn-success">
               <span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span> Reveal name</button>
 
             <button id="hintBtn" type="button" class="btn btn-labeled btn-warning">Hint</button>
             <!-- <a id="decryptBtn"  href="#" class="btn btn-primary">Reveal</a><br/> -->
-
+            <span id="chances" class="label label-danger" style="
+    float: left;
+    height: 34px;
+    width: 40px;
+    font-size: 8px;
+    padding-top: 22px;
+    margin-right: -25px;
+    margin-left: 50px;
+">
+              Chances <span id="chanceCount" style="
+    float: left;
+    margin-top: -30px;
+    font-size: 25px;
+    margin-left: 7px;
+">0</span>
+            </span>
           </div>
         </div>
       </div>
+      <div class="col-sm-2"></div>
+
     </div>
   </div>
 

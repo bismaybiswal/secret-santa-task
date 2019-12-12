@@ -1,15 +1,27 @@
 {
     "answer": [
-       421
+        421
     ],
     "secretNumbers": [
+        {
+            "value": "343",
+            "hint": "pelindrome"
+        },
         {
             "value": "371",
             "hint": "armstrong"
         },
         {
-            "value": "343",
-            "hint": "pelindrome"
+            "value": "709",
+            "hint": "bangalore"
+        },
+        {
+            "value": "405",
+            "hint": "notallowed"
+        },
+        {
+            "value": "370",
+            "hint": "370"
         },
         {
             "value": "980",
@@ -21,7 +33,7 @@
         {
             "__id": "1001",
             "username": "test",
-            "password": "Telstra@123",
+            "password": "test",
             "__session": null
         },
         {

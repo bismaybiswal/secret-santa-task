@@ -1,5 +1,6 @@
 let keys = []
 let hint;
+
 $(document).ready(function () {
 
 	//task
@@ -24,7 +25,7 @@ $(document).ready(function () {
 				} if (data.message != undefined) {
 					keys = data.combinations;
 					$("#error-notify1").hide();
-					$("#ans").val("");
+					$("#ans").attr("disabled", true);
 					$("#checkAns").attr("disabled", true)
 					$("#success-notify1").show();
 					$("#success-msg1").text(data.message + " Proceed to next challenge.")
@@ -33,7 +34,7 @@ $(document).ready(function () {
 					$("#pre-stage").show()
 					$("#numbers").text(`${data.combinations}`)
 					$("#pre-msg").text(`One number will be picked randomly from the above set of numbers and will be used as SECRET KEY to encrypt the secret santa's name. 
-					Guess the SECRET KEY ? No of chances : 3 `)
+					Find out the SECRET KEY? `)
 				}
 			});
 
@@ -48,6 +49,8 @@ $(document).ready(function () {
 
 	$("#continue").click(function () {
 		$("#continue").attr("disabled", true);
+		$("#continueInfo").hide()
+		$("#pre-msg").hide("slow")
 		$("#myProgress").show();
 		progress()
 	})
@@ -69,11 +72,7 @@ $(document).ready(function () {
 	}
 
 
-	let __session = window.sessionStorage.getItem("__sessionid__");
-	if (__session === undefined || __session === null || __session === '') {
-		alert("No sessions found. Redirecting to login")
-		redirect('/');
-	}
+	
 
 	$("#logout").click(function () {
 		window.sessionStorage.removeItem("$")
@@ -82,6 +81,7 @@ $(document).ready(function () {
 	})
 
 	$("#decryptBtn").click(function () {
+		$("#chanceCount").fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
 		$("#error-notify").css({ display: 'none' });
 
 		let encryptedText = $("#encryptedText").text().trim();
