@@ -17,20 +17,127 @@
       line-height: 30px;
       color: white;
     }
+
+    /* The Modal (background) */
+    .modal {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
+      z-index: 1;
+      /* Sit on top */
+      padding-top: 100px;
+      /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%;
+      /* Full width */
+      height: 100%;
+      /* Full height */
+      overflow: auto;
+      /* Enable scroll if needed */
+      background-color: rgb(0, 0, 0);
+      /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.9);
+      /* Black w/ opacity */
+    }
+
+    /* Modal Content (image) */
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+    }
+
+    /* Caption of Modal Image */
+    #caption {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      text-align: center;
+      color: #ccc;
+      padding: 10px 0;
+      height: 150px;
+    }
+
+    /* Add Animation */
+    .modal-content,
+    #caption {
+      -webkit-animation-name: zoom;
+      -webkit-animation-duration: 0.6s;
+      animation-name: zoom;
+      animation-duration: 0.6s;
+    }
+
+    @-webkit-keyframes zoom {
+      from {
+        -webkit-transform: scale(0)
+      }
+
+      to {
+        -webkit-transform: scale(1)
+      }
+    }
+
+    @keyframes zoom {
+      from {
+        transform: scale(0)
+      }
+
+      to {
+        transform: scale(1)
+      }
+    }
+
+    /* The Close Button */
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* 100% Image Width on Smaller Screens */
+    @media only screen and (max-width: 300px) {
+      .modal-content {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 
 <body>
   <% include partials/menu %>
   <div class="container-fluid bg-3 text-center">
+
+
+
     <h2 style="margin-top: -30px">Secret Santa challenge</h2>
     <div class="row">
-
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+        <button id="modalClose" type="button">close</button>
+      </div>
       <div class="col-sm-6">
         <div class="card">
           <h3 id="task1Header"><b>Challenge-1</b></h3>
           <div class="card-body">
-            <h4>Count the total no of lockers available in 5th floor of color <b style="color: orange">orange</b>,<b>white</b> and <b style="color:gray">dark gray</b> only. </h4>
+            <h4>Count the total no of lockers available in 5th floor of color <b
+                style="color: orange">orange</b>,<b>white</b> and <b style="color:gray">dark gray</b> only. </h4>
             <div id="success-notify1" class="alert alert-success" style="display: none">
               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
               <strong id="success-msg1"></strong>
@@ -53,8 +160,8 @@
         <div class="card">
           <h3 id="task2Header"><b>Challenge-2</b><br><br> Guess your Secret Santa!</h3>
           <div style="display: none" id="pre-stage">
-            <h4  style="font-weight: bold" id="numbers"></h4>
-            <h4 id="pre-msg" ></h4>
+            <h4 style="font-weight: bold" id="numbers"></h4>
+            <h4 id="pre-msg"></h4>
             <p>Press "continue" button to start the encryption.</p>
             <br>
             <button id="continue" type="button" class="btn btn-labeled btn-primary">
@@ -83,7 +190,8 @@
                 style="color: white; margin-left: 50px; margin-right: 50px; font-weight: bolder; font-size: 20px;"
                 id="revealArea">Success card</div>
             </div><br>
-            <p id="encryptedText" class="card-text" style="background-color: gray; border: 1;font-color: white; font-size: 11px">
+            <p id="encryptedText" class="card-text"
+              style="background-color: gray; border: 1;font-color: white; font-size: 11px">
               MjY150hxldB1dQOOSCvMF2aEydRyFpjxV?YFptxi4Z5g60P3Z4F1l9xZ1gM0T8Z
             </p>
             <div class="form-group">
@@ -95,6 +203,8 @@
             </span><br><br>
             <button id="decryptBtn" type="button" class="btn btn-labeled btn-success">
               <span class="btn-label"><i class="glyphicon glyphicon-ok"></i></span> Reveal name</button>
+
+            <button id="hintBtn" type="button" class="btn btn-labeled btn-warning">Hint</button>
             <!-- <a id="decryptBtn"  href="#" class="btn btn-primary">Reveal</a><br/> -->
 
           </div>

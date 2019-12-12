@@ -2,11 +2,31 @@
     "answer": [
        408
     ],
+    "secretNumbers": [
+        {
+            "value": "371",
+            "hint": "armstrong"
+        },
+        {
+            "value": "343",
+            "hint": "pelindrome"
+        },
+        {
+            "value": "980",
+            "hint": "gravity"
+        }
+    ],
     "text": "Bismay Biswal",
     "users": [
         {
             "__id": "1001",
             "username": "test",
+            "password": "Telstra@123",
+            "__session": null
+        },
+        {
+            "__id": "1002",
+            "username": "dinesh",
             "password": "Telstra@123",
             "__session": null
         }

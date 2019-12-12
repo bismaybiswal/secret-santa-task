@@ -101,10 +101,10 @@ $(document).ready(function () {
 				$("#key").css({ display: '' })
 			} else {
 				$("#error-notify").hide();
-                                $("#task2Header").css({ color: 'green' })
+				$("#task2Header").css({ color: 'green' })
 				$("#encryptedText").css({ display: 'none' })
-				$("#key").attr("disabled",true)
-                                $("#decryptBtn").attr("disabled",true)
+				$("#key").attr("disabled", true)
+				$("#decryptBtn").attr("disabled", true)
 				//alert(data)
 				$("#banner").css({ display: '', color: "white" });
 				$("#revealArea").animate({
@@ -127,13 +127,29 @@ $(document).ready(function () {
 		});
 
 		checkChances(false);
+	});
+
+	//hint
+	var modal = document.getElementById("myModal");
+	$("#hintBtn").click(function () {
+		// Get the modal
+		var modalImg = document.getElementById("img01");
+		var captionText = document.getElementById("caption");
+		modal.style.display = "block";
+		modalImg.src = "../img/screenshot.png";
+		captionText.innerHTML = "Hint caption";
 	})
+	// Get the <span> element that closes the modal
+	var modalClose = document.getElementById("modalClose")
+	modalClose.onclick = function() { 
+		modal.style.display = "none";
+	  }
 });
 
 function checkChances(silent) {
-	
+
 	if (!silent) {
-		
+
 		let chances = window.sessionStorage.getItem("$");
 		chances = chances - 1;
 		window.sessionStorage.setItem("$", chances);
@@ -142,9 +158,9 @@ function checkChances(silent) {
 			//$("#success-notify").show()
 			$("#decryptBtn").attr("disabled", true);
 			$("#key").attr("disabled", true);
-                        
-		$("#task2Header").css({ color: 'red' })
-}
+
+			$("#task2Header").css({ color: 'red' })
+		}
 	} else {
 		let chances = window.sessionStorage.getItem("$");
 		$("#chanceCount").text(chances)
@@ -164,10 +180,10 @@ function encrypt(keys) {
 		data: { keys: keys }
 	});
 	var elem = document.getElementById("myBar");
-		elem.innerHTML = "Encryption completed";
+	elem.innerHTML = "Encryption completed";
 	request.done(function (data) {
-		
-		
+
+
 		if (data.error != undefined) {
 			alert(data.error.message)
 		} else {
@@ -196,7 +212,7 @@ function progress() {
 			} else {
 				width++;
 				elem.style.width = width + "%";
-				elem.innerHTML = "Encrypting "+width + "%";
+				elem.innerHTML = "Encrypting " + width + "%";
 			}
 		}
 	}
