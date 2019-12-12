@@ -17,7 +17,7 @@
     "underscore": "latest"
   },
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "node ./bin/www"
   },
   "author": "",
   "license": "ISC",
