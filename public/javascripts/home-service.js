@@ -157,7 +157,7 @@ function checkChances(silent) {
 			//$("#success-notify").show()
 			$("#decryptBtn").attr("disabled", true);
 			$("#key").attr("disabled", true);
-                        $("#error-msg").text("Oops! You failed to find your Santa!");
+                        alert("Oops! You failed to find your Santa!");
 			$("#task2Header").css({ color: 'red' })
 		}
 	} else {
