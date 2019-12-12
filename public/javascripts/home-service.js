@@ -201,13 +201,18 @@ function progress() {
 		i = 1;
 		var elem = document.getElementById("myBar");
 		var width = 10;
-		var id = setInterval(frame, 20);
+		var id = setInterval(frame, 30);
 		function frame() {
 			if (width >= 100) {
 				clearInterval(id);
 				i = 0;
 				encrypt(keys)
-			} else {
+			}else if(width <= 40){
+                             width++;
+			     elem.style.width = width + "%";
+			     elem.innerHTML = "Picking Secret Key " + width + "%";
+                        }
+                        else {
 				width++;
 				elem.style.width = width + "%";
 				elem.innerHTML = "Encrypting " + width + "%";
