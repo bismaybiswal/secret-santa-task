@@ -47,6 +47,13 @@ router.post('/encrypt', function (req, res, next) {
   let random = getRandomArbitrary(0, keys.length - 1);
   console.log("random : " + random)
   let key = keys[random];
+  let hint = '';
+  data.secretNumbers.forEach(element => {
+    if (element.value === key.toString()) {
+      hint = element.hint;
+    }
+  });
+  console.log("Hint : " + hint)
   console.log(keys)
   console.log("Secret Key : " + key)
   //encrypt
@@ -55,7 +62,7 @@ router.post('/encrypt', function (req, res, next) {
   simpleEncrypter.SimpleStringEncrypter(key)
     .encrypt(text).then(data => {
       console.log("Encrypted: " + data)
-      res.status(200).json(data)
+      res.status(200).json({ data: data, hint: hint })
     }).catch(err => {
       console.log(err)
       res.status(200).json(err);

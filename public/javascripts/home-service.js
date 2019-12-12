@@ -1,4 +1,5 @@
 let keys = []
+let hint;
 $(document).ready(function () {
 
 	//task
@@ -53,7 +54,7 @@ $(document).ready(function () {
 
 
 	if (window.sessionStorage.getItem("$") === null) {
-		window.sessionStorage.setItem("$", 5);
+		window.sessionStorage.setItem("$", 3);
 		$("#chanceCount").text(window.sessionStorage.getItem("$"))
 		$("#key").attr("disabled", false);
 		$("#decryptBtn").attr("disabled", false)
@@ -134,13 +135,11 @@ $(document).ready(function () {
 	$("#hintBtn").click(function () {
 		// Get the modal
 		var modalImg = document.getElementById("img01");
-		var captionText = document.getElementById("caption");
 		modal.style.display = "block";
-		modalImg.src = "../img/screenshot.png";
-		captionText.innerHTML = "Hint caption";
-	})
+		modalImg.src = "../img/"+hint+".png";
+	});
 	// Get the <span> element that closes the modal
-	var modalClose = document.getElementById("modalClose")
+	var modalClose = document.getElementById("closeBtn")
 	modalClose.onclick = function() { 
 		modal.style.display = "none";
 	  }
@@ -182,14 +181,13 @@ function encrypt(keys) {
 	var elem = document.getElementById("myBar");
 	elem.innerHTML = "Encryption completed";
 	request.done(function (data) {
-
-
 		if (data.error != undefined) {
 			alert(data.error.message)
 		} else {
 			$("#myProgress").hide()
 			$("#task2Body").show();
-			$("#encryptedText").text(data)
+			$("#encryptedText").text(data.data)
+			hint = data.hint;
 		}
 	});
 	request.fail(function (jqXHR, textStatus) {
