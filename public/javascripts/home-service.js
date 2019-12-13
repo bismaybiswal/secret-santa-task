@@ -57,7 +57,7 @@ $(document).ready(function () {
 
 
 	if (window.sessionStorage.getItem("$") === null) {
-		window.sessionStorage.setItem("$", 3);
+		window.sessionStorage.setItem("$", 2);
 		$("#chanceCount").text(window.sessionStorage.getItem("$"))
 		$("#key").attr("disabled", false);
 		$("#decryptBtn").attr("disabled", false)
